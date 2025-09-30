@@ -54,8 +54,9 @@ def title_by_year(matches: List[str]) -> List[str]:
     Returns:
         a list of movie titles made in the passed in year
     """
-    year = int(matches [0])
     result = []
+    year = int(matches [0])
+    
     for movie in movie_db:
         if get_year(movie) == year:
             result.append(get_title(movie))
@@ -98,7 +99,15 @@ def title_before_year(matches: List[str]) -> List[str]:
         a list of movie titles made before the passed in year, exclusive (meaning if you
         pass in 1992 you won't get any movies made that year, only before)
     """
-    pass
+    result = []
+    start_year = int(matches[0])
+
+    for movie in movie_db:
+        movie_year = get_year(movie)
+    if start_year >= movie_year:
+        result.append(get_title(movie))
+
+    return result
 
 
 def title_after_year(matches: List[str]) -> List[str]:
@@ -112,7 +121,15 @@ def title_after_year(matches: List[str]) -> List[str]:
         a list of movie titles made after the passed in year, exclusive (meaning if you
         pass in 1992 you won't get any movies made that year, only after)
     """
-    pass
+    result = []
+    start_year = int(matches[0])
+
+    for movie in movie_db:
+        movie_year = get_year(movie)
+    if start_year <= movie_year:
+        result.append(get_title(movie))
+
+    return result
 
 
 def director_by_title(matches: List[str]) -> List[str]:
@@ -143,7 +160,15 @@ def title_by_director(matches: List[str]) -> List[str]:
     Returns:
         a list of movies titles directed by the passed in director
     """
-    pass
+    result = []
+    director = matches[0]
+
+    for movie in movie_db:
+        if get_director(movie) == director:
+            result.append(get_title(movie))
+    
+    return result
+
 
 
 def actors_by_title(matches: List[str]) -> List[str]:
@@ -174,7 +199,13 @@ def year_by_title(matches: List[str]) -> List[int]:
     Returns:
         a list of one item (an int), the year that the movie was made
     """
-    pass
+    result = []
+    title = matches [0]
+    
+    for movie in movie_db:
+        if get_title(movie) == title:
+            result.append(get_year(movie))
+    return result
 
 
 def title_by_actor(matches: List[str]) -> List[str]:
