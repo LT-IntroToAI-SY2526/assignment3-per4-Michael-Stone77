@@ -435,4 +435,16 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
             "spike lee",
         ],
     ),
+     (
+        "Terminator",
+        "James Cameron",
+        1984,
+        [
+            "Arnold Schwarzenegger",
+            "Linda Hamilton",
+            "Michael Biehn",
+            "Earl Boen",
+            "Franco Columbu",
+        ]
+    ),
 ]
