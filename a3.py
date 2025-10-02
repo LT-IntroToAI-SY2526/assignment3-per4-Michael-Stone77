@@ -239,6 +239,7 @@ pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what movies were directed by %"), title_by_director),
     (str.split("who acted in %"), actors_by_title),
     (str.split("when was % made"), year_by_title),
+    (str.split("what years did % direct"), year_by_director),
     (str.split("in what movies did % appear"), title_by_actor),
     (["bye"], bye_action),
 ]
@@ -256,9 +257,13 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    pass
+    for pat, act in pa_list:   
+        mat = match(pat, src)
 
-
+        if mat is not None:
+            answer = act(mat)
+            return answer if answer else ["No answers"]
+    return ["I don't understand"]
 def query_loop() -> None:
     """The simple query loop. The try/except structure is to catch Ctrl-C or Ctrl-D
     characters and exit gracefully.
