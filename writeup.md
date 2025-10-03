@@ -24,3 +24,4 @@ How it works is that it starts when a user types in a query, this then makes the
 
 
 3. What are some real-world applications where this type of pattern-matching chatbot system could be useful? How might you extend or improve this system for practical use?
+Some real world applications where this type of chatbot system would be useful is databases as it would allow people to find what there looking for quickly and efficiently like looking for medical records of a certain patient or looking through a database of fingerprints to find the fingerprints of a crime suspect.  One thing I might extend for this system for practical use is adding more action functions to the code so that it can find things more effecently and not get bogged down from trying to answer a query that doesn't match any of the already existing functions.  This would let it reach further into the database and extend the types of queries it can answer.
